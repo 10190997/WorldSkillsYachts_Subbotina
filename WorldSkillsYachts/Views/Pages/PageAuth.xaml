@@ -72,11 +72,10 @@
                 Click="RegisterButton_Click"
                 Content="Зарегистрироваться" />
         </StackPanel>
-        <TextBlock 
+        <TextBlock
             x:Name="SecondsBlocked"
-            Grid.Row="6" 
-            Grid.Column="0" 
-            Grid.ColumnSpan="4"
-            />
+            Grid.Row="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="4" />
     </Grid>
 </Page>

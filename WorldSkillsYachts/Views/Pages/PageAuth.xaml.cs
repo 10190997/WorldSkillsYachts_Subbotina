@@ -18,15 +18,47 @@ namespace WorldSkillsYachts.Views.Pages
     {
         public static User user = new User();
 
-        int attempts = 0;
-        int timeBlock;
+        private int attempts = 0;
+        private int timeBlock;
 
-        DispatcherTimer timer;
+        private DispatcherTimer timer;
 
         public PageAuth()
         {
             InitializeComponent();
             User.CheckUsers();
+        }
+
+        public static string Authorize(string login, string password)
+        {
+            List<User> users = AppData.db.Users.ToList();
+            user = users.SingleOrDefault(x => x.Login == login);
+            if (user != null && user.Password == password && !user.IsBlocked)
+            {
+                Properties.Settings.Default.IsLoggedIn = true;
+                user.LastLogin = DateTime.Today;
+                AppData.db.SaveChanges();
+                switch (user.Role_ID)
+                {
+                    case 1:
+                        Properties.Settings.Default.IsAdmin = true;
+                        break;
+
+                    case 2:
+                        Properties.Settings.Default.IsAdmin = false;
+                        break;
+
+                    default:
+                        break;
+                }
+                return "OK";
+            }
+            else if (user.IsBlocked && user != null && user.Password == password)
+                return "This user is blocked";
+            else if (user.Password != password && user != null && user.IsBlocked)
+                return "Incorrect password";
+            else
+                return null;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -80,7 +112,7 @@ namespace WorldSkillsYachts.Views.Pages
                             timeBlock += 20;
                         }
                         time = time.Add(TimeSpan.FromSeconds(-1));
-                    }, 
+                    },
                     Application.Current.Dispatcher);
                 }
                 else
@@ -99,38 +131,6 @@ namespace WorldSkillsYachts.Views.Pages
         {
             WindowRegister windowRegister = new WindowRegister();
             windowRegister.ShowDialog();
-        }
-
-        private static string Authorize(string login, string password)
-        {
-            List<User> users = AppData.db.Users.ToList();
-            user = users.SingleOrDefault(x => x.Login == login);
-            if (user != null && user.Password == password && !user.IsBlocked)
-            {
-                Properties.Settings.Default.IsLoggedIn = true;
-                user.LastLogin = DateTime.Today;
-                AppData.db.SaveChanges();
-                switch (user.Role_ID)
-                {
-                    case 1:
-                        Properties.Settings.Default.IsAdmin = true;
-                        break;
-
-                    case 2:
-                        Properties.Settings.Default.IsAdmin = false;
-                        break;
-
-                    default:
-                        break;
-                }
-                return "OK";
-            }
-            else if (user.IsBlocked && user != null && user.Password == password)
-                return "This user is blocked";
-            else if (user.Password != password && user != null && user.IsBlocked)
-                return "Incorrect password";
-            else
-                return null;
         }
     }
 }
