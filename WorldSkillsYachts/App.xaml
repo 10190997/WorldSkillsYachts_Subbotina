@@ -16,7 +16,7 @@
             <Setter Property="Margin" Value="5" />
             <Setter Property="FontSize" Value="14" />
         </Style>
-        <Style TargetType="Button">
+        <Style x:Key="SmallButton" TargetType="Button">
             <Setter Property="FontFamily" Value="Arial" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="Width" Value="100" />
@@ -33,6 +33,17 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="BorderBrush" Value="{x:Null}" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="BigButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Height" Value="auto" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
     </Application.Resources>
 </Application>

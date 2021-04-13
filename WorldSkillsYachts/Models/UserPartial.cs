@@ -28,5 +28,20 @@ namespace WorldSkillsYachts.Models
                 }
             }
         }
+
+        public string Color
+        {
+            get
+            {
+                if (IsBlocked)
+                {
+                    return "#CF2F44";
+                }
+                else
+                {
+                    return "#FF009FDA";
+                }
+            }
+        }
     }
 }

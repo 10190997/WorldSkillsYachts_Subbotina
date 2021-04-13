@@ -33,12 +33,20 @@
             Foreground="#FF004165"
             Text="World Yachts"
             TextAlignment="Center" />
+        <Button
+            Style="{DynamicResource SmallButton}"
+            x:Name="ButtonBack"
+            Content="Назад"
+            Visibility="Collapsed"
+            Grid.Column="1"
+            Grid.Row="0"
+            HorizontalAlignment="Right" Click="ButtonBack_Click"/>
         <Frame
             x:Name="MainFrame"
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             NavigationUIVisibility="Hidden"
-            Source="../Pages/PageAuth.xaml" />
+            Source="../Pages/PageAuth.xaml" ContentRendered="MainFrame_ContentRendered" />
     </Grid>
 </Window>

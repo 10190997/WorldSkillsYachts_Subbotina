@@ -53,9 +53,11 @@ namespace WorldSkillsYachts.Views.Pages
                 }
                 return "OK";
             }
-            else if (user.IsBlocked && user != null && user.Password == password)
+            else if (user == null)
+                return "User not found";
+            else if (user.IsBlocked && user.Password == password)
                 return "This user is blocked";
-            else if (user.Password != password && user != null && user.IsBlocked)
+            else if (user.Password != password)
                 return "Incorrect password";
             else
                 return null;
@@ -63,7 +65,17 @@ namespace WorldSkillsYachts.Views.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(LoginBox.Text) || 
+                string.IsNullOrEmpty(LoginBox.Text) ||
+                string.IsNullOrEmpty(PassBox.Password) ||
+                string.IsNullOrWhiteSpace(PassBox.Password))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля",
+                    "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             var result = Authorize(LoginBox.Text, PassBox.Password);
+
             if (result == "OK")
             {
                 attempts = 0;
@@ -87,10 +99,16 @@ namespace WorldSkillsYachts.Views.Pages
                     }
                 }
             }
+            else if (result == "User not found")
+            {
+                MessageBox.Show("Пользователь не найден",
+                    "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             else if (result == "This user is blocked")
             {
                 MessageBox.Show("Ваш аккаунт заблокирован спустя месяц неактивности. Обратитесь к системному администратору для разблокировки",
                     "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
             else if (result == "Incorrect password")
             {

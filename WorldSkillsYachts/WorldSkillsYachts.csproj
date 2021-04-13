@@ -67,13 +67,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\Pages\PageAccessories.xaml.cs">
+      <DependentUpon>PageAccessories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PageAddUser.xaml.cs">
+      <DependentUpon>PageAddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PageAdminTasks.xaml.cs">
+      <DependentUpon>PageAdminTasks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PageBoats.xaml.cs">
+      <DependentUpon>PageBoats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PageUsers.xaml.cs">
+      <DependentUpon>PageUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Pages\PageAccessories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PageAddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\PageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PageAdminTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,7 +108,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\PageBoats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\PageManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PageUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

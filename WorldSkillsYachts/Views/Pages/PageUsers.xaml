@@ -1,0 +1,68 @@
+﻿<Page x:Class="WorldSkillsYachts.Views.Pages.PageUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUsers" Loaded="Page_Loaded">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto">
+            <DataGrid 
+                Grid.Row="0"
+                x:Name="UserGrid"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                IsReadOnly="True"
+                Background="#FF009FDA"
+                RowHeaderWidth="0"
+                Width="auto"
+                Height="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Логин" Width="auto"
+                                    Binding="{Binding Login}"/>
+                    <DataGridTextColumn Header="Пароль" Width="auto"
+                                    Binding="{Binding Password}"/>
+                    <DataGridTextColumn Header="Роль" Width="auto"
+                                    Binding="{Binding Role.RoleTitle}"/>
+                    <DataGridTextColumn Header="Регистрация" Width="auto"
+                                    Binding="{Binding RegisteredDate, StringFormat=d}"/>
+                    <DataGridTextColumn Header="Заблокирован" Width="auto"
+                                    Binding="{Binding IsBlocked}"/>
+                    <DataGridTextColumn Header="Авторизация" Width="auto"
+                                    Binding="{Binding LastLogin, StringFormat=d}"/>
+                    <DataGridTextColumn Header="Смена пароля" Width="auto"
+                                    Binding="{Binding PasswordChanged, StringFormat=d}"/>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.Header>
+                            <Label>Действия</Label>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button 
+                                            Click="EditButton_Click" 
+                                            Content="Редактировать"
+                                            Width="150"
+                                            Style="{DynamicResource SmallButton}"/>
+                                    <Button 
+                                            Click="RemoveButton_Click" 
+                                            Content="Удалить"
+                                            Style="{DynamicResource SmallButton}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="{Binding Color}"/>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -63,10 +63,12 @@
             HorizontalAlignment="Center"
             Orientation="Horizontal">
             <Button
+                Style="{DynamicResource SmallButton}"
                 x:Name="LoginButton"
                 Click="LoginButton_Click"
                 Content="Войти" />
             <Button
+                Style="{DynamicResource SmallButton}"
                 x:Name="RegisterButton"
                 Width="160"
                 Click="RegisterButton_Click"

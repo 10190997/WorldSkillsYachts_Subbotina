@@ -59,31 +59,16 @@ namespace WorldSkillsYachts.Views.Windows
                     MessageBox.Show("Такой логин уже существует!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (LoginBox.Text == null && PassBox.Password == null)
+            {
+                MessageBox.Show("Введите логин и пароль!", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             else
             {
                 MessageBox.Show("Пароли не совпадают!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 PassBox.Password = string.Empty;
                 RepeatPassBox.Password = string.Empty;
             }
-        }
-
-        private void RegisterAdminButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (Properties.Settings.Default.IsAdmin)
-            {
-                Register(LoginBox.Text, PassBox.Password, 1);
-            }
-            else
-            {
-                if (MessageBox.Show("Регистрировать администраторов может только администратор. Перейти на форму авторизации?",
-                    "", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.ShowDialog();
-                    return;
-                }
-            }
-
         }
     }
 }
