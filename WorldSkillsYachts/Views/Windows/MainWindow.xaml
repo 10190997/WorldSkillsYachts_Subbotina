@@ -47,6 +47,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             NavigationUIVisibility="Hidden"
-            Source="../Pages/PageAuth.xaml" ContentRendered="MainFrame_ContentRendered" />
+            Source="../Pages/PageAuth.xaml" 
+            ContentRendered="MainFrame_ContentRendered" />
     </Grid>
 </Window>

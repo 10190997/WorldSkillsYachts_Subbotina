@@ -20,7 +20,7 @@ namespace WorldSkillsYachts.Models
             foreach (var u in users)
             {
                 if (u.LastLogin == null)
-                    u.LastLogin = u.RegisteredDate;
+                    return;
                 if (DateTime.Today.Subtract((DateTime)u.LastLogin).Days > 30)
                 {
                     u.IsBlocked = true;

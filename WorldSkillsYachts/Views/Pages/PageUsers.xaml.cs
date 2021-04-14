@@ -51,5 +51,10 @@ namespace WorldSkillsYachts.Views.Pages
         {
             GetUsers();
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAddUser(new User()));
+        }
     }
 }

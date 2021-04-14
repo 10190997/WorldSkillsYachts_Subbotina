@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\RolePartial.cs" />
     <Compile Include="Views\Pages\PageAccessories.xaml.cs">
       <DependentUpon>PageAccessories.xaml</DependentUpon>
     </Compile>

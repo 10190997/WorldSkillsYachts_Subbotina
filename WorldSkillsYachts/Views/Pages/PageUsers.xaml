@@ -8,10 +8,14 @@
       Title="PageUsers" Loaded="Page_Loaded">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Auto">
+                      HorizontalScrollBarVisibility="Auto" 
+                      Grid.Row="0">
             <DataGrid 
-                Grid.Row="0"
                 x:Name="UserGrid"
                 AutoGenerateColumns="False"
                 CanUserAddRows="False"
@@ -64,5 +68,10 @@
                 </DataGrid.RowStyle>
             </DataGrid>
         </ScrollViewer>
+        <Button 
+            Grid.Row="1"
+            Content="Добавить"
+            x:Name="AddButton"
+            Style="{DynamicResource SmallButton}" Click="AddButton_Click"/>
     </Grid>
 </Page>

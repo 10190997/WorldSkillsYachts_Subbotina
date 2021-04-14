@@ -9,27 +9,27 @@
       Title="PageAddUser" Loaded="Page_Loaded">
 
     <Grid>
-        <Grid Width="800" Height="450">
-            <ScrollViewer VerticalScrollBarVisibility="Visible"
+        <ScrollViewer VerticalScrollBarVisibility="Visible"
                       HorizontalScrollBarVisibility="Visible" CanContentScroll="False">
-                <StackPanel>
-                    <Label HorizontalAlignment="Center">Введите данные пользователя</Label>
-                    <Label>Логин</Label>
-                    <TextBox Name="tbLogin"/>
-                    <Label>Пароль</Label>
-                    <TextBox Name="tbPassword"></TextBox>
-                    <Label>Роль</Label>
-                    <ComboBox Name="cbRole"></ComboBox>
-                    <Label>Дата регистрации</Label>
-                    <TextBox Name="tbPrice"></TextBox>
-                    
-                    <Button Name="Save" Width="100"
-                    HorizontalAlignment="Left"
-                    Margin="0,10,0,0">
-                        Сохранить
-                    </Button>
-                </StackPanel>
-            </ScrollViewer>
-        </Grid>
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center">Введите данные пользователя</TextBlock>
+                <TextBlock>Логин</TextBlock>
+                <TextBox Name="tbLogin"/>
+                <TextBlock>Пароль</TextBlock>
+                <TextBox Name="tbPassword"></TextBox>
+                <TextBlock>Роль</TextBlock>
+                <ComboBox
+                    Margin="5"
+                    Name="cbRole" 
+                    ItemsSource="{Binding RoleTitle}"></ComboBox>
+                <TextBlock>Заблокирован?</TextBlock>
+                <RadioButton x:Name="isBlocked" GroupName="status" Content="True"/>
+                <RadioButton x:Name="isNotBlocked" GroupName="status" Content="False"/>
+                <Button 
+                    Name="Save"
+                    Style="{DynamicResource SmallButton}"
+                    Content="Сохранить" Click="Save_Click"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

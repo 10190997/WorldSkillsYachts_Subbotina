@@ -27,6 +27,8 @@ namespace WorldSkillsYachts.Views.Pages
         {
             InitializeComponent();
             NewUser = user;
+            isNotBlocked.IsChecked = true;
+            cbRole.SelectedIndex = 1;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -41,15 +43,28 @@ namespace WorldSkillsYachts.Views.Pages
             {
                 tbLogin.Text = NewUser.Login;
                 tbPassword.Text = NewUser.Password;
-                cbRole.SelectedIndex = (int)NewUser.Role_ID;
+                cbRole.SelectedIndex = (int)NewUser.Role_ID - 1;
+                if (NewUser.IsBlocked)
+                    isBlocked.IsChecked = true;
+                else
+                    isNotBlocked.IsChecked = true;
             }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(tbLogin.Text) ||
+                string.IsNullOrWhiteSpace(tbLogin.Text) ||
+                string.IsNullOrEmpty(tbPassword.Text) ||
+                string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                MessageBox.Show("Заполните все значения!", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             NewUser.Login = tbLogin.Text;
             NewUser.Password = tbPassword.Text;
-            NewUser.Role_ID = cbRole.SelectedIndex;
+            NewUser.Role_ID = cbRole.SelectedIndex + 1;
+            NewUser.IsBlocked = (bool)isBlocked.IsChecked;
             NewUser.RegisteredDate = DateTime.Today;
             if (NewUser.User_ID == 0)
             {
