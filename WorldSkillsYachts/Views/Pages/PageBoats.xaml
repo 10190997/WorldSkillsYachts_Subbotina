@@ -13,9 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Auto" 
-                      Grid.Row="0">
+        <ScrollViewer Grid.Row="0">
             <DataGrid 
                 x:Name="BoatGrid">
                 <DataGrid.Columns>

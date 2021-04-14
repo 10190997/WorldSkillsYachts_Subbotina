@@ -9,8 +9,7 @@
       Title="PageAddUser" Loaded="Page_Loaded">
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible"
-                      HorizontalScrollBarVisibility="Visible" CanContentScroll="False">
+        <ScrollViewer>
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center">Введите данные пользователя</TextBlock>
                 <TextBlock>Логин</TextBlock>
@@ -19,7 +18,6 @@
                 <TextBox Name="tbPassword"></TextBox>
                 <TextBlock>Роль</TextBlock>
                 <ComboBox
-                    Margin="5"
                     Name="cbRole" 
                     ItemsSource="{Binding RoleTitle}"></ComboBox>
                 <TextBlock>Заблокирован?</TextBlock>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorldSkillsYachts.Models;
+using WorldSkillsYachts.Utils;
 
 namespace WorldSkillsYachts.Views.Pages
 {
@@ -23,6 +25,39 @@ namespace WorldSkillsYachts.Views.Pages
         public PageAccessories()
         {
             InitializeComponent();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAddAccessory(new Accessory()));
+        }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Подтвердите удаление", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Accessory accessory = AccessoryGrid.SelectedItem as Accessory;
+                AppData.db.Accessories.Remove(accessory);
+                AppData.db.SaveChanges();
+                GetAccessories();
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Accessory accessory = AccessoryGrid.SelectedItem as Accessory;
+            NavigationService.Navigate(new PageAddAccessory(accessory));
+        }
+
+        private void GetAccessories()
+        {
+            List<Accessory> accessories = AppData.db.Accessories.ToList();
+            AccessoryGrid.ItemsSource = accessories;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            GetAccessories();
         }
     }
 }

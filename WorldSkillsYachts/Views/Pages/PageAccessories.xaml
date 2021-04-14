@@ -6,9 +6,61 @@
       xmlns:local="clr-namespace:WorldSkillsYachts.Views.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageAccessories">
+      Title="PageAccessories"
+      Loaded="Page_Loaded">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0">
+            <DataGrid 
+                x:Name="AccessoryGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="AccName" Width="auto"
+                                    Binding="{Binding AccName}"/>
+                    <DataGridTextColumn Header="DescriptionOfAccessory" Width="auto"
+                                    Binding="{Binding DescriptionOfAccessory}"/>
+                    <DataGridTextColumn Header="Price" Width="auto"
+                                    Binding="{Binding Price, StringFormat=0.00, ConverterCulture='ru-Ru'}"/>
+                    <DataGridTextColumn Header="Mast" Width="auto"
+                                    Binding="{Binding VAT}"/>
+                    <DataGridTextColumn Header="VAT" Width="auto"
+                                    Binding="{Binding Inventory}"/>
+                    <DataGridTextColumn Header="Inventory" Width="auto"
+                                    Binding="{Binding OrderLevel}"/>
+                    <DataGridTextColumn Header="OrderLevel" Width="auto"
+                                    Binding="{Binding OrderBatch}"/>
+                    <DataGridTextColumn Header="Partner" Width="auto"
+                                    Binding="{Binding Partner.Name}"/>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.Header>
+                            <Label>Действия</Label>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button 
+                                            Click="EditButton_Click" 
+                                            Content="Редактировать"
+                                            Width="150"
+                                            Style="{DynamicResource SmallButton}"/>
+                                    <Button 
+                                            Click="RemoveButton_Click" 
+                                            Content="Удалить"
+                                            Style="{DynamicResource SmallButton}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Button 
+            Grid.Row="1"
+            Content="Добавить"
+            x:Name="AddButton"
+            Style="{DynamicResource SmallButton}" Click="AddButton_Click"/>
     </Grid>
 </Page>

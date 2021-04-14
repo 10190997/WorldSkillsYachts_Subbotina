@@ -9,8 +9,7 @@
       Title="PageAddBoat" Loaded="Page_Loaded">
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible"
-                      HorizontalScrollBarVisibility="Visible" CanContentScroll="False">
+        <ScrollViewer>
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center">Введите данные лодки</TextBlock>
                 <TextBlock>Модель</TextBlock>
