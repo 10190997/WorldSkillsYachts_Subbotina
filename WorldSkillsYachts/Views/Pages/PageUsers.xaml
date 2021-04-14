@@ -16,15 +16,7 @@
                       HorizontalScrollBarVisibility="Auto" 
                       Grid.Row="0">
             <DataGrid 
-                x:Name="UserGrid"
-                AutoGenerateColumns="False"
-                CanUserAddRows="False"
-                CanUserDeleteRows="False"
-                IsReadOnly="True"
-                Background="#FF009FDA"
-                RowHeaderWidth="0"
-                Width="auto"
-                Height="auto">
+                x:Name="UserGrid">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Логин" Width="auto"
                                     Binding="{Binding Login}"/>
@@ -61,11 +53,6 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-                <DataGrid.RowStyle>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Background" Value="{Binding Color}"/>
-                    </Style>
-                </DataGrid.RowStyle>
             </DataGrid>
         </ScrollViewer>
         <Button 

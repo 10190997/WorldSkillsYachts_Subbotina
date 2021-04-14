@@ -35,10 +35,13 @@ namespace WorldSkillsYachts.Views.Pages
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = UserGrid.SelectedItem as User;
-            AppData.db.Users.Remove(user);
-            AppData.db.SaveChanges();
-            GetUsers();
+            if (MessageBox.Show("Подтвердите удаление", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                User user = UserGrid.SelectedItem as User;
+                AppData.db.Users.Remove(user);
+                AppData.db.SaveChanges();
+                GetUsers();
+            }
         }
 
         private void GetUsers()

@@ -71,6 +71,9 @@
     <Compile Include="Views\Pages\PageAccessories.xaml.cs">
       <DependentUpon>PageAccessories.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\PageAddBoat.xaml.cs">
+      <DependentUpon>PageAddBoat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\PageAddUser.xaml.cs">
       <DependentUpon>PageAddUser.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Pages\PageAccessories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PageAddBoat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

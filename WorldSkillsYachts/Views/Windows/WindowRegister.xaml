@@ -77,11 +77,13 @@
             <Button
                 x:Name="RegisterManagerButton"
                 Click="RegisterManagerButton_Click"
-                Content="Регистрация" />
+                Content="Регистрация"
+                Style="{DynamicResource SmallButton}"/>
             <Button
                 x:Name="CancelButton"
                 Click="CancelButton_Click"
-                Content="Отмена" />
+                Content="Отмена" 
+                Style="{DynamicResource SmallButton}"/>
         </StackPanel>
     </Grid>
 </Window>
