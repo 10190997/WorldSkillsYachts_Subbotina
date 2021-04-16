@@ -50,7 +50,12 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                </DataGrid.Columns>
+                   </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="{Binding Color}"/>
+                    </Style>
+                </DataGrid.RowStyle>
             </DataGrid>
         </ScrollViewer>
         <Button 

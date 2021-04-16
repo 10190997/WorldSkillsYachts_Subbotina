@@ -69,54 +69,57 @@
     </ApplicationDefinition>
     <Compile Include="Models\PartnerPartial.cs" />
     <Compile Include="Models\RolePartial.cs" />
-    <Compile Include="Views\Pages\PageAccessories.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAccessories.xaml.cs">
       <DependentUpon>PageAccessories.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageAddAccessory.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAddAccessory.xaml.cs">
       <DependentUpon>PageAddAccessory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageAddBoat.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAddBoat.xaml.cs">
       <DependentUpon>PageAddBoat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageAddUser.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAddUser.xaml.cs">
       <DependentUpon>PageAddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageAdminTasks.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAdminTasks.xaml.cs">
       <DependentUpon>PageAdminTasks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageBoats.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageBoats.xaml.cs">
       <DependentUpon>PageBoats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageUsers.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageUsers.xaml.cs">
       <DependentUpon>PageUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\WindowChangePrice.xaml.cs">
+      <DependentUpon>WindowChangePrice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Pages\PageAccessories.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAccessories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAddAccessory.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAddAccessory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAddBoat.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAddBoat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAddUser.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAdmin.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAdminTasks.xaml">
+    <Page Include="Views\Pages\AdminControls\PageAdminTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,15 +127,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageBoats.xaml">
+    <Page Include="Views\Pages\AdminControls\PageBoats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageManager.xaml">
+    <Page Include="Views\Pages\ManagerControls\PageManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageUsers.xaml">
+    <Page Include="Views\Pages\AdminControls\PageUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,13 +200,13 @@
     </Compile>
     <Compile Include="Models\UserPartial.cs" />
     <Compile Include="Utils\AppData.cs" />
-    <Compile Include="Views\Pages\PageAdmin.xaml.cs">
+    <Compile Include="Views\Pages\AdminControls\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\PageAuth.xaml.cs">
       <DependentUpon>PageAuth.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageManager.xaml.cs">
+    <Compile Include="Views\Pages\ManagerControls\PageManager.xaml.cs">
       <DependentUpon>PageManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
@@ -211,6 +214,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Windows\WindowChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\WindowChangePrice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

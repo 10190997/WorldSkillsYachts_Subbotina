@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WorldSkillsYachts.Models;
 using WorldSkillsYachts.Utils;
+using WorldSkillsYachts.Views.Windows;
 
 namespace WorldSkillsYachts.Views.Pages
 {
@@ -22,6 +23,7 @@ namespace WorldSkillsYachts.Views.Pages
     /// </summary>
     public partial class PageBoats : Page
     {
+        List<Boat> boats;
         public PageBoats()
         {
             InitializeComponent();
@@ -51,13 +53,20 @@ namespace WorldSkillsYachts.Views.Pages
         
         private void GetBoats()
         {
-            List<Boat> boats = AppData.db.Boats.ToList();
+            boats = AppData.db.Boats.ToList();
             BoatGrid.ItemsSource = boats;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageAddBoat(new Boat()));
+        }
+
+        private void ChangePriceButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowChangePrice windowChangePrice = new WindowChangePrice(boats);
+            windowChangePrice.ShowDialog();
+            GetBoats();
         }
     }
 }

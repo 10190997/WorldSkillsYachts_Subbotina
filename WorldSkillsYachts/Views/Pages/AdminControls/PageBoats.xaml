@@ -17,21 +17,21 @@
             <DataGrid 
                 x:Name="BoatGrid">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Model" Width="auto"
+                    <DataGridTextColumn Header="Модель" Width="auto"
                                     Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="BoatType" Width="auto"
+                    <DataGridTextColumn Header="Тип лодки" Width="auto"
                                     Binding="{Binding BoatType}"/>
-                    <DataGridTextColumn Header="NumberOfRowers" Width="auto"
+                    <DataGridTextColumn Header="Количество мест для гребцов" Width="auto"
                                     Binding="{Binding NumberOfRowers}"/>
                     <DataGridTextColumn Header="Mast" Width="auto"
                                     Binding="{Binding Mast}"/>
-                    <DataGridTextColumn Header="Colour" Width="auto"
+                    <DataGridTextColumn Header="Цвет" Width="auto"
                                     Binding="{Binding Colour}"/>
-                    <DataGridTextColumn Header="Wood" Width="auto"
+                    <DataGridTextColumn Header="Дерево" Width="auto"
                                     Binding="{Binding Wood}"/>
-                    <DataGridTextColumn Header="BasePrice" Width="auto"
+                    <DataGridTextColumn Header="Базовая цена" Width="auto"
                                     Binding="{Binding BasePrice, StringFormat=0.00, ConverterCulture='ru-Ru'}"/>
-                    <DataGridTextColumn Header="VAT" Width="auto"
+                    <DataGridTextColumn Header="Налог" Width="auto"
                                     Binding="{Binding VAT}"/>
                     <DataGridTemplateColumn Width="auto">
                         <DataGridTemplateColumn.Header>
@@ -54,12 +54,28 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#FF009FDA"/>
+                    </Style>
+                </DataGrid.RowStyle>
             </DataGrid>
         </ScrollViewer>
-        <Button 
+        <StackPanel 
+            Orientation="Horizontal"
             Grid.Row="1"
-            Content="Добавить"
-            x:Name="AddButton"
-            Style="{DynamicResource SmallButton}" Click="AddButton_Click"/>
+            HorizontalAlignment="Center">
+            <Button 
+                Content="Добавить"
+                x:Name="AddButton"
+                Style="{DynamicResource SmallButton}" 
+                Click="AddButton_Click"/>
+            <Button 
+                Content="Групповое изменение цен"
+                x:Name="ChangePriceButton"
+                Width="200"
+                Style="{DynamicResource SmallButton}" Click="ChangePriceButton_Click"/>
+        </StackPanel>
+
     </Grid>
 </Page>

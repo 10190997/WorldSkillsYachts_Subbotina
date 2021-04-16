@@ -1,0 +1,42 @@
+﻿<Window x:Class="WorldSkillsYachts.Views.Windows.WindowChangePrice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldSkillsYachts.Views.Windows"
+        mc:Ignorable="d"
+        Title="WindowChangePrice" 
+        Height="300" 
+        Width="300"
+        WindowStartupLocation="CenterScreen"
+        Background="#FF009FDA"
+        ResizeMode="NoResize">
+    <StackPanel
+        Orientation="Vertical"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <RadioButton 
+            GroupName="PriceChange" 
+            IsChecked="True"
+            Content="Увеличить"
+            x:Name="Increase"/>
+            <TextBlock Text="на" VerticalAlignment="Center"/>
+            <TextBox Width="50" x:Name="tbIncrease" VerticalAlignment="Center" GotFocus="tbIncrease_GotFocus"/>
+            <TextBlock Text="%" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <RadioButton 
+            GroupName="PriceChange" 
+            Content="Уменьшить"
+            x:Name="Decrease"/>
+            <TextBlock Text="на" VerticalAlignment="Center"/>
+            <TextBox Width="50" x:Name="tbDecrease" VerticalAlignment="Center" GotFocus="tbDecrease_GotFocus"/>
+            <TextBlock Text="%" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button
+            x:Name="SaveButton"
+            Content="Сохранить"
+            Style="{DynamicResource SmallButton}" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

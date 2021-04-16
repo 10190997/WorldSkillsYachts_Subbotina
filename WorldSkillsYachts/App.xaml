@@ -15,6 +15,7 @@
             <Setter Property="FontFamily" Value="Arial" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="SmallButton" TargetType="Button">
             <Setter Property="FontFamily" Value="Arial" />
@@ -55,9 +56,6 @@
             <Setter Property="Width" Value="auto"/>
             <Setter Property="Height" Value="auto"/>
         </Style>
-        <Style TargetType="DataGridRow">
-            <Setter Property="Background" Value="{Binding Color}"/>
-        </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Margin" Value="5"/>
         </Style>
@@ -65,6 +63,13 @@
             <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="CanContentScroll" Value="True"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
     </Application.Resources>
 </Application>
