@@ -67,8 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\AccessoryPartial.cs" />
+    <Compile Include="Models\BoatPartial.cs" />
+    <Compile Include="Models\CustomerPartial.cs" />
     <Compile Include="Models\PartnerPartial.cs" />
     <Compile Include="Models\RolePartial.cs" />
+    <Compile Include="Models\SalespersonPartial.cs" />
     <Compile Include="Views\Pages\AdminControls\PageAccessories.xaml.cs">
       <DependentUpon>PageAccessories.xaml</DependentUpon>
     </Compile>

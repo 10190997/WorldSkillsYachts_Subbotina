@@ -27,6 +27,8 @@ namespace WorldSkillsYachts.Views.Pages
         public PageAuth()
         {
             InitializeComponent();
+            LoginBox.Text = "manager";
+            PassBox.Password = "manager";
             User.CheckUsers();
         }
 
