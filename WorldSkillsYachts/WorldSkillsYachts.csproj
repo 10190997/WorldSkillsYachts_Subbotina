@@ -73,77 +73,77 @@
     <Compile Include="Models\PartnerPartial.cs" />
     <Compile Include="Models\RolePartial.cs" />
     <Compile Include="Models\SalespersonPartial.cs" />
-    <Compile Include="Views\Pages\AdminControls\PageAccessories.xaml.cs">
+    <Compile Include="Views\Administration\PageAccessories.xaml.cs">
       <DependentUpon>PageAccessories.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageAddAccessory.xaml.cs">
+    <Compile Include="Views\Administration\PageAddAccessory.xaml.cs">
       <DependentUpon>PageAddAccessory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageAddBoat.xaml.cs">
+    <Compile Include="Views\Administration\PageAddBoat.xaml.cs">
       <DependentUpon>PageAddBoat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageAddUser.xaml.cs">
+    <Compile Include="Views\Administration\PageAddUser.xaml.cs">
       <DependentUpon>PageAddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageAdminTasks.xaml.cs">
+    <Compile Include="Views\Administration\PageAdminTasks.xaml.cs">
       <DependentUpon>PageAdminTasks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageBoats.xaml.cs">
+    <Compile Include="Views\Administration\PageBoats.xaml.cs">
       <DependentUpon>PageBoats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AdminControls\PageUsers.xaml.cs">
+    <Compile Include="Views\Administration\PageUsers.xaml.cs">
       <DependentUpon>PageUsers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\WindowChangePassword.xaml.cs">
+    <Compile Include="Views\AppUsage\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\WindowChangePrice.xaml.cs">
+    <Compile Include="Views\Administration\WindowChangePrice.xaml.cs">
       <DependentUpon>WindowChangePrice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\WindowRegister.xaml.cs">
+    <Compile Include="Views\AppUsage\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Pages\AdminControls\PageAccessories.xaml">
+    <Page Include="Views\Administration\PageAccessories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageAddAccessory.xaml">
+    <Page Include="Views\Administration\PageAddAccessory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageAddBoat.xaml">
+    <Page Include="Views\Administration\PageAddBoat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageAddUser.xaml">
+    <Page Include="Views\Administration\PageAddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageAdmin.xaml">
+    <Page Include="Views\Administration\PageAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageAdminTasks.xaml">
+    <Page Include="Views\Administration\PageAdminTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\PageAuth.xaml">
+    <Page Include="Views\AppUsage\PageAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageBoats.xaml">
+    <Page Include="Views\Administration\PageBoats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\ManagerControls\PageManager.xaml">
+    <Page Include="Views\Management\PageManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AdminControls\PageUsers.xaml">
+    <Page Include="Views\Administration\PageUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\MainWindow.xaml">
+    <Page Include="Views\AppUsage\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -204,28 +204,28 @@
     </Compile>
     <Compile Include="Models\UserPartial.cs" />
     <Compile Include="Utils\AppData.cs" />
-    <Compile Include="Views\Pages\AdminControls\PageAdmin.xaml.cs">
+    <Compile Include="Views\Administration\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\PageAuth.xaml.cs">
+    <Compile Include="Views\AppUsage\PageAuth.xaml.cs">
       <DependentUpon>PageAuth.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\ManagerControls\PageManager.xaml.cs">
+    <Compile Include="Views\Management\PageManager.xaml.cs">
       <DependentUpon>PageManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+    <Compile Include="Views\AppUsage\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Windows\WindowChangePassword.xaml">
+    <Page Include="Views\AppUsage\WindowChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\WindowChangePrice.xaml">
+    <Page Include="Views\Administration\WindowChangePrice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\WindowRegister.xaml">
+    <Page Include="Views\AppUsage\WindowRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
