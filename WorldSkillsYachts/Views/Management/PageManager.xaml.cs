@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using WorldSkillsYachts.Models;
 using WorldSkillsYachts.Utils;
+using WorldSkillsYachts.Views.Management;
 
 namespace WorldSkillsYachts.Views.Pages
 {
@@ -13,20 +15,14 @@ namespace WorldSkillsYachts.Views.Pages
     public partial class PageManager : Page
     {
         public Detail NewDetail { get; set; }
-        public Contract NewContract { get; set; }
-        public Invoice NewInvoice { get; set; }
         public Order NewOrder { get; set; }
 
         public PageManager()
         {
             InitializeComponent();
-            NewDetail = new Detail();
-            NewContract = new Contract();
-            NewInvoice = new Invoice();
-            NewOrder = new Order();
         }
 
-        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             cbCustomer.ItemsSource = AppData.db.Customers.ToList();
             cbSalesperson.ItemsSource = AppData.db.Salespersons.ToList();
@@ -51,7 +47,7 @@ namespace WorldSkillsYachts.Views.Pages
             return accessories;
         }
 
-        private void btnSave_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             AddOrder(cbCustomer.Text, cbSalesperson.Text, cbBoat.Text, tbAddress.Text, tbCity.Text);
             string[] accs = new string[lbAcc.Items.Count];
@@ -62,52 +58,50 @@ namespace WorldSkillsYachts.Views.Pages
                 i++;
             }
             AddDetail(accs);
+            if (MessageBox.Show("Заказ оформлен. Перейти к оформлению контракта?", "", 
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                WindowAddContract windowAddContract = new WindowAddContract(NewOrder.Order_ID);
+                windowAddContract.ShowDialog();
+            }
         }
 
         private void AddOrder(string customer, string salesperson, string boat, string address, string city)
         {
-            NewOrder.Date = DateTime.Today;
-            NewOrder.Salesperson_ID = AppData.db.Salespersons.Where(x => salesperson.Contains(x.FirstName) &&
-            salesperson.Contains(x.FamilyName)).FirstOrDefault().SalesPerson_ID;
-            NewOrder.Customer_ID = AppData.db.Customers.Where(x => customer.Contains(x.FistName) &&
-            customer.Contains(x.FamilyName)).FirstOrDefault().Customer_ID;
-            NewOrder.Boat_ID = AppData.db.Boats.Where(x => x.Model == boat).FirstOrDefault().boat_ID;
-            NewOrder.DeliveryAddress = address;
-            NewOrder.City = city;
+            NewOrder = new Order
+            {
+                Date = DateTime.Today,
+                Salesperson_ID = AppData.db.Salespersons.Where(x => salesperson.Contains(x.FirstName) &&
+                salesperson.Contains(x.FamilyName)).FirstOrDefault().SalesPerson_ID,
+                Customer_ID = AppData.db.Customers.Where(x => customer.Contains(x.FistName) &&
+                customer.Contains(x.FamilyName)).FirstOrDefault().Customer_ID,
+                Boat_ID = AppData.db.Boats.Where(x => x.Model == boat).FirstOrDefault().boat_ID,
+                DeliveryAddress = address,
+                City = city
+            };
             AppData.db.Orders.Add(NewOrder);
             AppData.db.SaveChanges();
         }
-
-        private void AddContract(decimal deposit)
-        {
-            NewContract.Date = DateTime.Today;
-            NewContract.DepositPayed = deposit;
-            NewContract.Order_ID = NewOrder.Order_ID;
-            NewContract.ContractTotalPrice = 0;
-            NewContract.ContracTotalPrice_inclVAT = 0;
-            NewContract.ProductionProcess = "";
-            AppData.db.Contracts.Add(NewContract);
-            AppData.db.SaveChanges();
-        }
-
-        private void AddInvoice(decimal sum, bool settled, decimal sumVAT)
-        {
-            NewInvoice.Contract_ID = NewContract.Contract_ID;
-            NewInvoice.Settled = settled;
-            NewInvoice.Sum = sum;
-            NewInvoice.Sum_inclVAT = sumVAT;
-            NewInvoice.Date = DateTime.Today;
-        }
-
+        
         private void AddDetail(string[] accessory)
         {
-            int[] IDs = new int[accessory.Length];
-            int i = 0;
-            foreach (var a in accessory)
+            if (string.IsNullOrEmpty(tbAddress.Text) ||
+                string.IsNullOrWhiteSpace(tbAddress.Text) ||
+                string.IsNullOrEmpty(tbCity.Text) ||
+                string.IsNullOrWhiteSpace(tbCity.Text))
             {
-                IDs[i] = AppData.db.Accessories.Where(x => x.AccName == a).FirstOrDefault().Accessory_ID;
+                MessageBox.Show("Заполните все значения!", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            NewDetail = new Detail();
+            int[] IDs = new int[lbAcc.SelectedItems.Count];
+            int i = 0;
+            foreach (var item in lbAcc.SelectedItems)
+            {
+                IDs[i] = AppData.db.Accessories.Where(x => x.AccName == item.ToString()).FirstOrDefault().Accessory_ID;
                 i++;
             }
+
             foreach (var id in IDs)
             {
                 NewDetail.Accessory_ID = id;
@@ -115,8 +109,18 @@ namespace WorldSkillsYachts.Views.Pages
                 AppData.db.Details.Add(NewDetail);
                 AppData.db.SaveChanges();
             }
-            
-            
+        }
+
+        private void btnInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAddInvoice windowAddInvoice = new WindowAddInvoice();
+            windowAddInvoice.ShowDialog();
+        }
+
+        private void btnContract_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAddContract windowAddContract = new WindowAddContract();
+            windowAddContract.ShowDialog();
         }
     }
 }

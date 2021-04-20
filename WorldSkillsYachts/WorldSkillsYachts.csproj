@@ -69,7 +69,9 @@
     </ApplicationDefinition>
     <Compile Include="Models\AccessoryPartial.cs" />
     <Compile Include="Models\BoatPartial.cs" />
+    <Compile Include="Models\ContractPartial.cs" />
     <Compile Include="Models\CustomerPartial.cs" />
+    <Compile Include="Models\OrderPartial.cs" />
     <Compile Include="Models\PartnerPartial.cs" />
     <Compile Include="Models\RolePartial.cs" />
     <Compile Include="Models\SalespersonPartial.cs" />
@@ -102,6 +104,12 @@
     </Compile>
     <Compile Include="Views\AppUsage\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Management\WindowAddContract.xaml.cs">
+      <DependentUpon>WindowAddContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Management\WindowAddInvoice.xaml.cs">
+      <DependentUpon>WindowAddInvoice.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Administration\PageAccessories.xaml">
       <SubType>Designer</SubType>
@@ -226,6 +234,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AppUsage\WindowRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Management\WindowAddContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Management\WindowAddInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

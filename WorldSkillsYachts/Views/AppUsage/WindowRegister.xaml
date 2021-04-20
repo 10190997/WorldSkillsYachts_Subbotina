@@ -40,7 +40,6 @@
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            FontWeight="SemiBold"
             Text="Логин" />
         <TextBox
             x:Name="LoginBox"
@@ -51,7 +50,6 @@
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            FontWeight="SemiBold"
             Text="Пароль" />
         <PasswordBox
             x:Name="PassBox"
@@ -62,7 +60,6 @@
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            FontWeight="SemiBold"
             Text="Повторите пароль" />
         <PasswordBox
             x:Name="RepeatPassBox"
